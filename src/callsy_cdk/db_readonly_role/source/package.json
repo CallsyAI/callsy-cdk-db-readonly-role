@@ -1,0 +1,12 @@
+{
+  "name": "callsy-cdk-db-readonly-role-handler",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Handler behind the DatabaseReadonlyRole custom resource.",
+  "main": "index.js",
+  "license": "ISC",
+  "dependencies": {
+    "@aws-sdk/client-secrets-manager": "^3.700.0",
+    "pg": "^8.13.0"
+  }
+}

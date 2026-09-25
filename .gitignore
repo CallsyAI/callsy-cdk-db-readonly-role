@@ -1,0 +1,31 @@
+### Python ###
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.venv/
+venv/
+.mypy_cache/
+.ruff_cache/
+.pytest_cache/
+
+### CDK ###
+cdk.out/
+.cdk.staging/
+
+### Node ###
+node_modules/
+
+### JetBrains ###
+.idea/
+*.iml
+
+### macOS ###
+.DS_Store
+._*
+
+### Environment ###
+.env
+.env.*

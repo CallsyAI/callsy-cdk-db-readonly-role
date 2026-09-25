@@ -1,0 +1,86 @@
+[build-system]
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
+
+[project]
+name = "callsy-cdk-db-readonly-role"
+version = "1.0.0"
+description = "AWS CDK construct that creates a Postgres role which reads every table and writes nothing."
+readme = "README.md"
+requires-python = ">=3.10"
+license = "ISC"
+license-files = ["LICENSE"]
+authors = [{ name = "Laimonas Sutkus" }]
+keywords = [
+    "aws",
+    "cdk",
+    "cloudformation",
+    "rds",
+    "aurora",
+    "postgres",
+    "readonly",
+    "custom-resource",
+]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Topic :: Database",
+    "Topic :: Software Development :: Build Tools",
+    "Topic :: System :: Systems Administration",
+    "Typing :: Typed",
+]
+dependencies = [
+    "aws-cdk-lib>=2.180.0,<3.0.0",
+    "constructs>=10.0.0,<11.0.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/CallsyAI/callsy-cdk-db-readonly-role"
+Repository = "https://github.com/CallsyAI/callsy-cdk-db-readonly-role"
+Changelog = "https://github.com/CallsyAI/callsy-cdk-db-readonly-role/blob/main/CHANGELOG.md"
+Issues = "https://github.com/CallsyAI/callsy-cdk-db-readonly-role/issues"
+
+[dependency-groups]
+dev = [
+    "mypy>=1.18",
+    "ruff>=0.14",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/callsy_cdk"]
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "src",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE",
+    "pyproject.toml",
+]
+
+[tool.ruff]
+line-length = 120
+src = ["src"]
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "N", "UP", "B", "C4", "SIM", "RUF"]
+ignore = [
+    # A single line `if ...: return` is the established style of this codebase.
+    "E701",
+]
+
+[tool.mypy]
+python_version = "3.10"
+strict = true
+files = ["src"]
+mypy_path = "src"
+namespace_packages = true
+explicit_package_bases = true
